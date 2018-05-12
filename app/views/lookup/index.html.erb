@@ -1,0 +1,15 @@
+<h3>名前で検索</h3>
+
+<%= form_tag(controller:"lookup",action:"index") do %><!-- フォームタグを生成→lookupコントローラのindexメソッドが呼ばれる -->
+  <%= text_field_tag :search, params[:search], class: "form-control" %>
+  <%= submit_tag("Search")%><!-- "Search"の名前のボタンを生成 -->
+<% end %>
+
+<% @search.each do |hoge| %><!-- 変数@searchの中の全要素に対して下記の処理を行っていく(hogeが変数@searchの中のひとつひとつの要素) -->
+   <h6>名前:<%= hoge.name %></h6>
+   <h6>出身地:<%= hoge.homeprefecture %></h6>
+   <h6>年齢:<%= hoge.age %></h6>
+   <h6>出身校:<%= hoge.school %></h6>
+   <%= "======================" %>
+   <br>
+<% end %>
